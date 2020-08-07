@@ -59,6 +59,7 @@ const parseArgs = () => {
         port: options.port,
         username: options.username,
         password: options.password,
+        timeout: 10 * 60000,
     });
 
     try {
@@ -91,10 +92,10 @@ const parseArgs = () => {
     console.info("Output address:", tx.address);
     console.info();
 
-    const ok = await yesno({
-        question: "Are you sure you want to broadcast the transaction?",
-    });
-    if (!ok) process.exit(0);
+    // const ok = await yesno({
+    //     question: "Are you sure you want to broadcast the transaction?",
+    // });
+    // if (!ok) process.exit(0);
 
     try {
         const txid = await broadcast({ client, hex: tx.hex });
