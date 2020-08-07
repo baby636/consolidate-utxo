@@ -13,6 +13,10 @@ async function construct({ client, maximumAmount, limit, feeRate }) {
         throw new Error("No suitable UTXO found");
     }
 
+    if (unspent.length < 50) {
+      throw new Error("Too few UTXOs. Wait for more.");
+    }
+
     if (limit) {
         unspent = unspent.slice(0, limit);
     }
