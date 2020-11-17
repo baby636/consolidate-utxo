@@ -32,7 +32,7 @@ const parseArgs = () => {
             "--limit": Number,
             "--amount": Number,
             "--fee": Number,
-            "--address": String,
+            "--output": String,
         },
         { argv: process.argv.slice(2) }
     );
@@ -50,7 +50,7 @@ const parseArgs = () => {
         maximumAmount: args["--amount"] || 0.0001,
         limit: args["--limit"],
         feeRate: args["--fee"] || 1,
-        address: args["--address"],
+        outputAddress: args["--output"],
     };
 
     return options;
