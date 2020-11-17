@@ -80,6 +80,7 @@ const parseArgs = () => {
             maximumAmount: options.maximumAmount,
             limit: options.limit,
             feeRate: options.feeRate,
+            outputAddress: options.outputAddress,
         });
     } catch (e) {
         console.error("Constructing transaction error");
