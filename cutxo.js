@@ -2,7 +2,7 @@ const BigNumber = require("bignumber.js");
 
 const BN = BigNumber.clone({ DECIMAL_PLACES: 8 });
 
-async function construct({ client, maximumAmount, limit, feeRate }) {
+async function construct({ client, maximumAmount, limit, feeRate, outputAddress }) {
     let unspent = await client.listUnspent(1, 9999999, [], true, {
         maximumAmount,
         maximumCount: 650,
@@ -21,7 +21,12 @@ async function construct({ client, maximumAmount, limit, feeRate }) {
         unspent = unspent.slice(0, limit);
     }
 
-    const address = await client.getNewAddress("");
+    let address;
+    if (outputAddress) {
+      address = outputAddress;
+    } else {
+      address = await client.getNewAddress("");
+    }
     console.log("Output address:", address);
     let amount;
     let fee;

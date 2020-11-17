@@ -68,6 +68,7 @@ Consolidates UTXO on your bitcoin node.
   --port     Port where bitcoin json-rpc is listerning. Default is "8332".
   --limit    Limit number of inputs.
   --amount   Maximum amount for UTXO to include in transaction. Default is "0.0001".
+  --output   Manually specifying output address. _(Optional: leaving it blank would generate a new address every run)_
   --fee      Fee for new transaction in Satoshi/byte. Default is "1".
 ```
 
